@@ -1,0 +1,26 @@
+{
+  "name": "networthcalculator",
+  "version": "1.0.0",
+  "description": "Net worth calculator application",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "cd client && npm install",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "test": "ava tests/*.js -s -v"
+  },
+  "author": "Moin Mahmud Tanvee",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "nodemon": "^1.14.6",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "currency.js": "^1.2.2",
+    "express": "^4.16.2",
+    "money": "^0.2.0",
+    "morgan": "~1.8.1"
+  }
+}

@@ -1,0 +1,53 @@
+table {
+  padding:0;
+  list-style:none;
+  margin:auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+.header {
+  color: #00cc00;
+  font-weight: bold;
+}
+
+.header_line {
+  border-bottom-style: double;
+  border-bottom: 1px solid #000000;
+}
+
+.header_double_line {
+  border-bottom-style: double;
+}
+
+select {
+  color: #ad1f42;
+  font-size: 16px;
+}
+
+.value {
+  color: #ad1f42;
+  font-size: 16px;
+}
+
+input[type=text] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.error { 
+  border: 1px solid red; 
+}
+
+.errorMessage {
+  color: red;
+  margin-left: 10px;
+}
+ 
