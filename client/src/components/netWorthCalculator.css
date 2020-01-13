@@ -46,8 +46,6 @@ input[type=text] {
   border: 1px solid red; 
 }
 
-.errorMessage {
-  color: red;
-  margin-left: 10px;
+.result {
+  padding-left: 20px;
 }
- 

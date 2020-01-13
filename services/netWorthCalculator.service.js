@@ -198,21 +198,21 @@ module.exports = {
 
     if (from !== to) {
         for (let item of cashInvestments) {
-            item.value = currency(fx.convert(item.value, {from: from, to: to}));
+            item.value = currency(fx.convert(currency(item.value).value, {from: from, to: to})).format();
         }
 
         for (let item of longTermAssets) {
-            item.value = currency(fx.convert(item.value, {from: from, to: to}));
+            item.value = currency(fx.convert(currency(item.value).value, {from: from, to: to})).format();
         }
 
         for (let item of shortTermLiabilities) {
-            item.value = currency(fx.convert(item.value, {from: from, to: to}));
-            item.monthly_payment_value = currency(fx.convert(item.monthly_payment_value, {from: from, to: to}));
+            item.value = currency(fx.convert(currency(item.value).value, {from: from, to: to})).format();
+            item.monthly_payment_value = currency(fx.convert(currency(item.monthly_payment_value).value, {from: from, to: to})).format();
         }
 
         for (let item of longTermDebt) {
-            item.value = currency(fx.convert(item.value, {from: from, to: to}));
-            item.monthly_payment_value = currency(fx.convert(item.monthly_payment_value, {from: from, to: to}));
+            item.value = currency(fx.convert(currency(item.value).value, {from: from, to: to})).format();
+            item.monthly_payment_value = currency(fx.convert(currency(item.monthly_payment_value).value, {from: from, to: to})).format();
         }
     }
 
