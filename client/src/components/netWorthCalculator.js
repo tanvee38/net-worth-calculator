@@ -2,40 +2,72 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './netWorthCalculator.css';
 
+import currency from '../../node_modules/currency.js';
+
 class NetworthCalculator extends Component {
   constructor() {
     super();
     this.state = {
+      // cashInvestments: [
+      //   {id: 1, name: 'Chequing', value: '2000'},
+      //   {id: 2, name: 'Savings for Taxes', value: '4000'},
+      //   {id: 3, name: 'Rainy Day Fund', value: '506'},
+      //   {id: 4, name: 'Savings for Fun', value: '5000'},
+      //   {id: 5, name: 'Savings for Travel', value: '400'},
+      //   {id: 6, name: 'Savings for Personal Development', value: '200'},
+      //   {id: 7, name: 'Investment 1', value: '5000'},
+      //   {id: 8, name: 'Investment 2', value: '60000'},
+      //   {id: 9, name: 'Investment 3', value: '30000'},
+      //   {id: 10, name: 'Investment 4', value: '50000'},
+      //   {id: 11, name: 'Investment 5', value: '24000'}
+      // ],
+      // longTermAssets: [
+      //   {id: 1, name: 'Primary Home', value: 455000},
+      //   {id: 2, name: 'Second Home', value: 1564321},
+      //   {id: 3, name: 'Other', value: 0},
+      // ],
+      // shortTermLiabilities: [
+      //   {id: 1, name: 'Credit Card 1', value: 4342, monthly_payment_value: 200},
+      //   {id: 2, name: 'Credit Card 2', value: 322, monthly_payment_value: 150},
+      //   {id: 3, name: 'Others', value: 0, monthly_payment_value: 0}
+      // ],
+      // longTermDebt: [
+      //   {id: 1, name: 'Mortgage 1', value: 250999, monthly_payment_value: 2000},
+      //   {id: 2, name: 'Mortgage 2', value: 632634, monthly_payment_value: 3500},
+      //   {id: 3, name: 'Line of Credit', value: 10000, monthly_payment_value: 500},
+      //   {id: 4, name: 'Investment Loan', value: 10000, monthly_payment_value: 70},
+      //   {id: 5, name: 'Student Loan', value: 0, monthly_payment_value: 0},
+      //   {id: 6, name: 'Car Loan', value: 0, monthly_payment_value: 0}
       cashInvestments: [
-        {id: 1, name: 'Chequing', value: 2000},
-        {id: 2, name: 'Savings for Taxes', value: 4000},
-        {id: 3, name: 'Rainy Day Fund', value: 506},
-        {id: 4, name: 'Savings for Fun', value: 5000},
-        {id: 5, name: 'Savings for Travel', value: 400},
-        {id: 6, name: 'Savings for Personal Development', value: 200},
-        {id: 7, name: 'Investment 1', value: 5000},
-        {id: 8, name: 'Investment 2', value: 60000},
-        {id: 9, name: 'Investment 3', value: 30000},
-        {id: 10, name: 'Investment 4', value: 50000},
-        {id: 11, name: 'Investment 5', value: 24000}
+        {id: 1, name: 'Chequing', value: '100.00'},
+        {id: 2, name: 'Savings for Taxes', value: '100.00'},
+        {id: 3, name: 'Rainy Day Fund', value: '100.00'},
+        {id: 4, name: 'Savings for Fun', value: '100.00'},
+        {id: 5, name: 'Savings for Travel', value: '100.00'},
+        {id: 6, name: 'Savings for Personal Development', value: '100.00'},
+        {id: 7, name: 'Investment 1', value: '100.00'},
+        {id: 8, name: 'Investment 2', value: '100.00'},
+        {id: 9, name: 'Investment 3', value: '100.00'},
+        {id: 10, name: 'Investment 4', value: '100.00'},
+        {id: 11, name: 'Investment 5', value: '100.00'}
       ],
       longTermAssets: [
-        {id: 1, name: 'Primary Home', value: 455000},
-        {id: 2, name: 'Second Home', value: 1564321},
-        {id: 3, name: 'Other', value: 0},
+        {id: 1, name: 'Primary Home', value: '100.00'},
+        {id: 2, name: 'Second Home', value: '100.00'},
+        {id: 3, name: 'Other', value: '0.00'},
       ],
       shortTermLiabilities: [
-        {id: 1, name: 'Credit Card 1', value: 4342, monthly_payment_value: 200},
-        {id: 2, name: 'Credit Card 2', value: 322, monthly_payment_value: 150},
-        {id: 3, name: 'Others', value: 0, monthly_payment_value: 0}
+        {id: 1, name: 'Credit Card 1', value: '100.00', monthly_payment_value: '200.00'},
+        {id: 2, name: 'Credit Card 2', value: '100.00', monthly_payment_value: '150.00'},
+        {id: 3, name: 'Others', value: '100.00', monthly_payment_value: '0.00'}
       ],
       longTermDebt: [
-        {id: 1, name: 'Mortgage 1', value: 250999, monthly_payment_value: 2000},
-        {id: 2, name: 'Mortgage 2', value: 632634, monthly_payment_value: 3500},
-        {id: 3, name: 'Line of Credit', value: 10000, monthly_payment_value: 500},
-        {id: 4, name: 'Investment Loan', value: 10000, monthly_payment_value: 70},
-        {id: 5, name: 'Student Loan', value: 0, monthly_payment_value: 0},
-        {id: 6, name: 'Car Loan', value: 0, monthly_payment_value: 0}
+        {id: 1, name: 'Mortgage 1', value: '100.00', monthly_payment_value: '2000.00'},
+        {id: 2, name: 'Mortgage 2', value: '100.00', monthly_payment_value: '3500.00'},
+        {id: 3, name: 'Line of Credit', value: '100.00', monthly_payment_value: '500.00'},
+        {id: 4, name: 'Investment Loan', value: '100.00', monthly_payment_value: '70.00'},
+        {id: 5, name: 'Student Loan', value: '100.00', monthly_payment_value: '0.00'},
+        {id: 6, name: 'Car Loan', value: '100.00', monthly_payment_value: '0.00'}
       ],
       totalAssets: '',
       totalLiabilities: '',
@@ -61,14 +93,33 @@ class NetworthCalculator extends Component {
     this.getNetWorth();
   }
 
-  validate(value, name) {
-    let errorMessage = document.querySelector(`input[name='${name}'`).nextElementSibling
-    
-    errorMessage.innerHTML = value < 0 ? 'Please enter a minimum of 0' : '';
+  /**
+   * Validate
+   * @param {string} value
+   * @return {boolean}
+   */
+  validate(value) {
+    value = parseFloat(value.replace(/,/g, ""))
+              .toFixed(2)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-    return value < 0 ? false : true;
+    let isValid = true;
+
+    if (value < 0) {
+      isValid = false;
+    }
+
+    if (value === 'NaN') {
+      isValid = false;
+    }
+
+    return isValid;
   }
 
+  /**
+   * Get net worth
+   */
   getNetWorth() {
     const currencyType = document.getElementById('currency-dropdown').value;
 
@@ -106,28 +157,55 @@ class NetworthCalculator extends Component {
     });
   }
 
+  /**
+   * Handle input
+   * @param {object} event
+   */
   _handleInput = (event) => {
-    let balancesheetItems = [...this.state[event.target.id]];
+    let balancesheetItems = [...this.state[event.target.name]];
     
-    let item = balancesheetItems.find(el => el.name === event.target.name);
+    let item = balancesheetItems.find(el => el.name === event.target.id);
 
-    const index = balancesheetItems.findIndex(el => el.name === event.target.name);
+    const index = balancesheetItems.findIndex(el => el.id === event.target.id);
 
     item.value = event.target.value;
 
     balancesheetItems[index] = item;
      
     this.setState({balancesheetItems});
+  }
 
-    const isValid = this.validate(event.target.value, event.target.name);
+  /**
+   * Handle submit
+   * @param {object} event
+   */
+  _handleSubmit = (event) => {
+    let balancesheetItems = [...this.state[event.target.name]];
+    
+    let item = balancesheetItems.find(el => el.name === event.target.id);
 
-    this.setState({isValid});
+    const index = balancesheetItems.findIndex(el => el.id === event.target.id);
+
+    item.value = currency(event.target.value).format();
+
+    balancesheetItems[index] = item;
+     
+    this.setState({balancesheetItems});
+
+    const isValid = this.validate(item.value, event.target.id);
+
+    this.state.isValid = isValid;
+
+    this.setState({isValid: isValid});
 
     if (this.state.isValid) {
       this.getNetWorth();
     }
   }
 
+  /**
+   * Handle select
+   */
   _handleSelect = () => {
     const currentSelection = document.getElementById('currency-dropdown').value;
 
@@ -171,7 +249,7 @@ class NetworthCalculator extends Component {
             <tr className="header header_line">
               <th>Net Worth</th>
               <th></th>
-              <th>{this.state.currencySign[this.state.currentSelection].sign} {this.state.networth}</th>
+              <th>{this.state.currencySign[this.state.currentSelection].sign} {currency(this.state.networth).format()}</th>
             </tr>
             <tr className="header header_line">
               <th>Assets</th>
@@ -188,7 +266,18 @@ class NetworthCalculator extends Component {
               <tr key={item.id}>
                 <td>{item.name}</td>
                 <td></td>
-                <td><span className="value">{this.state.currencySign[this.state.currentSelection].sign} </span><input className={item.value < 0 ? "error value" : "value"} id="cashInvestments" name={item.name} type="number" min="0" value={item.value} onChange={this._handleInput} /><span id="errorMessage" className="errorMessage" aria-live="polite"></span></td>
+                <td><span className="value">{this.state.currencySign[this.state.currentSelection].sign} </span>
+                <input 
+                  type="text"
+                  className={item.value < 0 ? "error value" : "value"} 
+                  name="cashInvestments" 
+                  id={item.name} 
+                  pattern="[0-9]*$" 
+                  value={currency(item.value).format()} 
+                  onChange={this._handleInput} 
+                  onBlur={this._handleSubmit}
+                ></input>
+                </td>
               </tr>
             )}
 
@@ -208,7 +297,18 @@ class NetworthCalculator extends Component {
               <tr key={item.id}>
                 <td>{item.name}</td>
                 <td></td>
-                <td><span className="value">{this.state.currencySign[this.state.currentSelection].sign} </span><input className={item.value < 0 ? "error value" : "value"} id="longTermAssets" name={item.name} type="number" min="0" value={item.value} onChange={this._handleInput} /><span id="errorMessage" className="errorMessage" aria-live="polite"></span></td>
+                <td><span className="value">{this.state.currencySign[this.state.currentSelection].sign} </span>
+                  <input 
+                    type="text"
+                    className={item.value < 0 ? "error value" : "value"} 
+                    name="longTermAssets" 
+                    id={item.name} 
+                    pattern="[0-9]*$" 
+                    value={currency(item.value).format()} 
+                    onChange={this._handleInput} 
+                    onBlur={this._handleSubmit}
+                  ></input>
+                </td>
               </tr>
             )}
 
@@ -221,7 +321,7 @@ class NetworthCalculator extends Component {
             <tr className="header header_double_line">
               <td>Total Assets</td>
               <td></td>
-              <td>{this.state.currencySign[this.state.currentSelection].sign} {this.state.totalAssets}</td>
+              <td>{this.state.currencySign[this.state.currentSelection].sign} {currency(this.state.totalAssets).format()}</td>
             </tr>
 
             <tr className="header header_line">
@@ -240,7 +340,18 @@ class NetworthCalculator extends Component {
               <tr key={item.id}>
                 <td>{item.name}</td>
                 <td><span>{this.state.currencySign[this.state.currentSelection].sign} </span>{item.monthly_payment_value}</td>
-                <td><span className="value">{this.state.currencySign[this.state.currentSelection].sign} </span><input className={item.value < 0 ? "error value" : "value"} id="shortTermLiabilities" name={item.name} type="number" min="0" value={item.value} onChange={this._handleInput} /><span id="errorMessage" className="errorMessage" aria-live="polite"></span></td>
+                <td><span className="value">{this.state.currencySign[this.state.currentSelection].sign} </span>
+                <input 
+                    type="text"
+                    className={item.value < 0 ? "error value" : "value"} 
+                    name="shortTermLiabilities" 
+                    id={item.name} 
+                    pattern="[0-9]*$" 
+                    value={currency(item.value).format()} 
+                    onChange={this._handleInput} 
+                    onBlur={this._handleSubmit}
+                  ></input>
+                </td>
               </tr>
             )}
 
@@ -260,7 +371,18 @@ class NetworthCalculator extends Component {
               <tr key={item.id}>
                 <td>{item.name}</td>
                 <td><span>{this.state.currencySign[this.state.currentSelection].sign} </span>{item.monthly_payment_value}</td>
-                <td><span className="value">{this.state.currencySign[this.state.currentSelection].sign} </span><input className={item.value < 0 ? "error value" : "value"} id="longTermDebt" name={item.name} type="number" min="0" value={item.value} onChange={this._handleInput} /><span id="errorMessage" className="errorMessage" aria-live="polite"></span></td>
+                <td><span className="value">{this.state.currencySign[this.state.currentSelection].sign} </span>
+                <input 
+                    type="text"
+                    className={item.value < 0 ? "error value" : "value"} 
+                    name="longTermDebt" 
+                    id={item.name} 
+                    pattern="[0-9]*$" 
+                    value={currency(item.value).format()} 
+                    onChange={this._handleInput} 
+                    onBlur={this._handleSubmit}
+                  ></input>
+                </td>
               </tr>
             )}
 
@@ -273,7 +395,7 @@ class NetworthCalculator extends Component {
             <tr className="header header_double_line">
               <td>Total Liabilities</td>
               <td></td>
-              <td>{this.state.currencySign[this.state.currentSelection].sign} {this.state.totalLiabilities}</td>
+              <td>{this.state.currencySign[this.state.currentSelection].sign} {currency(this.state.totalLiabilities).format()}</td>
             </tr>
           </tbody>
         </table>

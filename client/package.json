@@ -6,7 +6,8 @@
     "axios": "^0.18.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "currency.js": "^1.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
