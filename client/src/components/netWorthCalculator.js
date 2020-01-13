@@ -8,66 +8,36 @@ class NetworthCalculator extends Component {
   constructor() {
     super();
     this.state = {
-      // cashInvestments: [
-      //   {id: 1, name: 'Chequing', value: '2000'},
-      //   {id: 2, name: 'Savings for Taxes', value: '4000'},
-      //   {id: 3, name: 'Rainy Day Fund', value: '506'},
-      //   {id: 4, name: 'Savings for Fun', value: '5000'},
-      //   {id: 5, name: 'Savings for Travel', value: '400'},
-      //   {id: 6, name: 'Savings for Personal Development', value: '200'},
-      //   {id: 7, name: 'Investment 1', value: '5000'},
-      //   {id: 8, name: 'Investment 2', value: '60000'},
-      //   {id: 9, name: 'Investment 3', value: '30000'},
-      //   {id: 10, name: 'Investment 4', value: '50000'},
-      //   {id: 11, name: 'Investment 5', value: '24000'}
-      // ],
-      // longTermAssets: [
-      //   {id: 1, name: 'Primary Home', value: 455000},
-      //   {id: 2, name: 'Second Home', value: 1564321},
-      //   {id: 3, name: 'Other', value: 0},
-      // ],
-      // shortTermLiabilities: [
-      //   {id: 1, name: 'Credit Card 1', value: 4342, monthly_payment_value: 200},
-      //   {id: 2, name: 'Credit Card 2', value: 322, monthly_payment_value: 150},
-      //   {id: 3, name: 'Others', value: 0, monthly_payment_value: 0}
-      // ],
-      // longTermDebt: [
-      //   {id: 1, name: 'Mortgage 1', value: 250999, monthly_payment_value: 2000},
-      //   {id: 2, name: 'Mortgage 2', value: 632634, monthly_payment_value: 3500},
-      //   {id: 3, name: 'Line of Credit', value: 10000, monthly_payment_value: 500},
-      //   {id: 4, name: 'Investment Loan', value: 10000, monthly_payment_value: 70},
-      //   {id: 5, name: 'Student Loan', value: 0, monthly_payment_value: 0},
-      //   {id: 6, name: 'Car Loan', value: 0, monthly_payment_value: 0}
       cashInvestments: [
-        {id: 1, name: 'Chequing', value: '100.00'},
-        {id: 2, name: 'Savings for Taxes', value: '100.00'},
-        {id: 3, name: 'Rainy Day Fund', value: '100.00'},
-        {id: 4, name: 'Savings for Fun', value: '100.00'},
-        {id: 5, name: 'Savings for Travel', value: '100.00'},
-        {id: 6, name: 'Savings for Personal Development', value: '100.00'},
-        {id: 7, name: 'Investment 1', value: '100.00'},
-        {id: 8, name: 'Investment 2', value: '100.00'},
-        {id: 9, name: 'Investment 3', value: '100.00'},
-        {id: 10, name: 'Investment 4', value: '100.00'},
-        {id: 11, name: 'Investment 5', value: '100.00'}
+        {id: 1, name: 'Chequing', value: '2000.00'},
+        {id: 2, name: 'Savings for Taxes', value: '4000.00'},
+        {id: 3, name: 'Rainy Day Fund', value: '506.00'},
+        {id: 4, name: 'Savings for Fun', value: '5000.00'},
+        {id: 5, name: 'Savings for Travel', value: '400.00'},
+        {id: 6, name: 'Savings for Personal Development', value: '200.00'},
+        {id: 7, name: 'Investment 1', value: '5000.00'},
+        {id: 8, name: 'Investment 2', value: '60000.00'},
+        {id: 9, name: 'Investment 3', value: '30000.00'},
+        {id: 10, name: 'Investment 4', value: '50000.00'},
+        {id: 11, name: 'Investment 5', value: '24000.00'}
       ],
       longTermAssets: [
-        {id: 1, name: 'Primary Home', value: '100.00'},
-        {id: 2, name: 'Second Home', value: '100.00'},
+        {id: 1, name: 'Primary Home', value: '455000.00'},
+        {id: 2, name: 'Second Home', value: '1564321.00'},
         {id: 3, name: 'Other', value: '0.00'},
       ],
       shortTermLiabilities: [
-        {id: 1, name: 'Credit Card 1', value: '100.00', monthly_payment_value: '200.00'},
-        {id: 2, name: 'Credit Card 2', value: '100.00', monthly_payment_value: '150.00'},
-        {id: 3, name: 'Others', value: '100.00', monthly_payment_value: '0.00'}
+        {id: 1, name: 'Credit Card 1', value: '4342.00', monthly_payment_value: '200.00'},
+        {id: 2, name: 'Credit Card 2', value: '322.00', monthly_payment_value: '150.00'},
+        {id: 3, name: 'Others', value: '0.00', monthly_payment_value: '0.00'}
       ],
       longTermDebt: [
-        {id: 1, name: 'Mortgage 1', value: '100.00', monthly_payment_value: '2000.00'},
-        {id: 2, name: 'Mortgage 2', value: '100.00', monthly_payment_value: '3500.00'},
-        {id: 3, name: 'Line of Credit', value: '100.00', monthly_payment_value: '500.00'},
-        {id: 4, name: 'Investment Loan', value: '100.00', monthly_payment_value: '70.00'},
-        {id: 5, name: 'Student Loan', value: '100.00', monthly_payment_value: '0.00'},
-        {id: 6, name: 'Car Loan', value: '100.00', monthly_payment_value: '0.00'}
+        {id: 1, name: 'Mortgage 1', value: '250999.00', monthly_payment_value: '2000.00'},
+        {id: 2, name: 'Mortgage 2', value: '632634.00', monthly_payment_value: '3500.00'},
+        {id: 3, name: 'Line of Credit', value: '10000.00', monthly_payment_value: '500.00'},
+        {id: 4, name: 'Investment Loan', value: '10000.00', monthly_payment_value: '70.00'},
+        {id: 5, name: 'Student Loan', value: '0.00', monthly_payment_value: '0.00'},
+        {id: 6, name: 'Car Loan', value: '0.00', monthly_payment_value: '0.00'}
       ],
       totalAssets: '',
       totalLiabilities: '',
