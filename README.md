@@ -10,7 +10,7 @@ This is a simple net worth calculator application using React-Node-Express Stack
 
 # Clone or download the project.
 
-# git bash the project folder.
+# cd net-worth-calculator
 
 # Install dependencies for server
 npm install
