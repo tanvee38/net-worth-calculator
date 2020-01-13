@@ -1,12 +1,12 @@
 # net-worth-calculator
 
-This is a simple application using React-Node-Express Stack.
+This is a simple net worth calculator application using React-Node-Express Stack.
 
 ## Quick Start
 
 ``` bash
 
-# Install Git, node.js.
+# Install Git, node.JS.
 
 # Clone or download the project.
 

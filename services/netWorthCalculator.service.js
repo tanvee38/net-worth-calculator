@@ -10,7 +10,7 @@ module.exports = {
   getNetWorth: async (req) => {
     // const response = await request.get(`/api/latest.json?app_id=a120779d25204ea191111f0fe24959fb`);
 
-    // const rates = response.query.rates;
+    // fx.rates = response.body.rates;
 
     fx.base = 'USD';
 
