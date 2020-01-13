@@ -1,4 +1,4 @@
-# net-worth-calculator
+# Net Worth Calculator
 
 This is a simple net worth calculator application using React-Node-Express Stack.
 
