@@ -9,8 +9,10 @@ This is a simple net worth calculator application using React-Node-Express Stack
 # Install Git, node.JS.
 
 # Clone or download the project.
+git clone https://github.com/tanvee38/net-worth-calculator.git
 
-# cd net-worth-calculator
+# Move to project directory
+cd net-worth-calculator
 
 # Install dependencies for server
 npm install
